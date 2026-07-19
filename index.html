@@ -24,9 +24,6 @@
         .hero-z-strzalkami { display: flex; align-items: center; justify-content: center; gap: 50px; width: 100%; }
         .strzalki-grupa { display: flex; flex-direction: column; gap: 5px; }
         .strzalka-w-dol { font-family: var(--czcionka-tytuly); font-weight: 800; font-size: 4rem; color: var(--pomarancz-ognisty); transform: rotate(90deg); display: inline-block; text-shadow: 0 0 15px rgba(255, 77, 0, 0.6); animation: pulsowanieStrzalki 1.5s infinite; }
-        .strzalka-w-dol:nth-child(1) { animation-delay: 0s; }
-        .strzalka-w-dol:nth-child(2) { animation-delay: 0.2s; }
-        .strzalka-w-dol:nth-child(3) { animation-delay: 0.4s; }
         @keyframes pulsowanieStrzalki { 0%, 100% { transform: rotate(90deg) translateX(0); opacity: 0.5; } 50% { transform: rotate(90deg) translateX(15px); opacity: 1; } }
         .profil-kontener { display: flex; flex-direction: column; align-items: center; gap: 30px; background: rgba(10, 0, 0, 0.7); padding: 40px 60px; border-radius: 20px; border: 1px solid var(--bordo); box-shadow: 0 15px 40px rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 10; }
         .profil-info { display: flex; align-items: center; gap: 25px; }
@@ -34,11 +31,10 @@
         .przycisk-kanal { font-family: var(--czcionka-glowna); font-weight: 800; font-size: 1.1rem; color: var(--kolor-tekstu); text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(45deg, var(--czerwien-ciemna), var(--czerwien-zywa)); padding: 16px 45px; border-radius: 40px; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,0,21,0.3); text-align: center; border: 1px solid rgba(255,255,255,0.2); }
         .przycisk-kanal:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255,0,21,0.6); color: #ffffff; border-color: var(--pomarancz-ognisty); }
         .sekcja-tresci { padding: 100px 20px; display: flex; justify-content: center; }
-        .kontener-rapow { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 100px; }
+        .kontener-rapow { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 80px; }
         .blok-rapu { display: flex; align-items: center; justify-content: space-between; gap: 40px; background: linear-gradient(135deg, rgba(15,0,0,0.9), rgba(5,0,0,0.95)); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 77, 0, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
         .rap-tekst { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .rap-foto-kontener { flex: 1; border-radius: 12px; overflow: hidden; border: 2px solid var(--bordo); box-shadow: 0 0 20px rgba(138, 0, 11, 0.4); position: relative; }
-        .rap-foto-kontener::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(255,0,21,0.1), transparent); pointer-events: none; }
         .rap-zdjecie { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16/9; }
         .rap-tytul { font-family: var(--czcionka-tytuly); font-size: 2.8rem; color: var(--kolor-tekstu); margin-bottom: 5px; text-transform: uppercase; line-height: 1.1; }
         .rap-link { display: inline-block; font-weight: 800; font-size: 1.2rem; color: var(--pomarancz-ognisty); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
@@ -48,7 +44,21 @@
         .stopka-tekst { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .tworca-akcent { color: var(--czerwien-zywa); font-weight: 800; font-size: 1.1rem; font-family: var(--czcionka-tytuly); margin: 0 5px; }
         .prawa-zastrzezone { font-size: 0.85rem; opacity: 0.6; margin-top: 10px; }
-        @media (max-width: 768px) { #centralne-graffiti { font-size: 45vw; } .hero-z-strzalkami { gap: 15px; } .strzalka-w-dol { font-size: 2.5rem; } .profil-kontener { padding: 30px 20px; } .profil-info { flex-direction: column; text-align: center; gap: 15px; } .nazwa-uzytkownika { font-size: 2.5rem; } .przycisk-kanal { font-size: 0.9rem; padding: 12px 20px; } .blok-rapu { flex-direction: column !important; text-align: center !important; } .rap-tekst { align-items: center; } }
+        
+        /* MOBILKI - TU SĄ ZMIANY */
+        @media (max-width: 768px) { 
+            #centralne-graffiti { font-size: 45vw; } 
+            .hero-z-strzalkami { gap: 0; } 
+            .strzalki-grupa { display: none; } /* Ukrywa strzałki na telefonie */
+            .profil-kontener { padding: 30px 20px; } 
+            .profil-info { flex-direction: column; text-align: center; gap: 15px; } 
+            .nazwa-uzytkownika { font-size: 2.5rem; } 
+            .przycisk-kanal { font-size: 0.9rem; padding: 12px 20px; } 
+            .blok-rapu { flex-direction: column !important; text-align: center !important; padding: 25px; } 
+            .rap-tekst { align-items: center; } 
+            .rap-tytul { font-size: 2rem; }
+            .kontener-rapow { gap: 40px; }
+        }
     </style>
 </head>
 <body>
@@ -125,13 +135,9 @@
                 Foto.src = dane.zdjecie;
                 Foto.alt = dane.tytul;
                 SekcjaZdjecia.appendChild(Foto);
-                if (i % 2 === 0) {
-                    Blok.appendChild(SekcjaTekstu);
-                    Blok.appendChild(SekcjaZdjecia);
-                } else {
-                    Blok.appendChild(SekcjaZdjecia);
-                    Blok.appendChild(SekcjaTekstu);
-                }
+                // Tutaj usuwamy warunek if (i % 2 === 0), żeby na telefonie wszystko było w jednej kolejności
+                Blok.appendChild(SekcjaZdjecia);
+                Blok.appendChild(SekcjaTekstu);
                 Kontener.appendChild(Blok);
             }
         }
