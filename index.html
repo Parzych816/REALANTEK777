@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANT£KNIGHT_777 // ZIG-ZAG SHOWCASE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600;800&family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        :root { --kolor-tla: #050000; --kolor-tekstu: #ffffff; --kolor-tekstu-ciemny: #a1a1aa; --czerwien-zywa: #ff0015; --czerwien-ciemna: #5c0008; --bordo: #8a000b; --pomarancz-ognisty: #ff4d00; --czcionka-glowna: 'Inter', sans-serif; --czcionka-tytuly: 'Syne', sans-serif; --czcionka-graffiti: 'Bangers', cursive; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--kolor-tla); color: var(--kolor-tekstu); font-family: var(--czcionka-glowna); line-height: 1.6; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+        main { flex: 1; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        #centralne-graffiti { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--czcionka-graffiti); font-size: 28vw; color: var(--czerwien-ciemna); text-shadow: 0 0 20px rgba(92, 0, 8, 0.5); z-index: -1; pointer-events: none; line-height: 0.8; margin: 0; opacity: 0.5; }
+        .glowna-nawigacja { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0)); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(138, 0, 11, 0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        .nawigacja-kontener { width: 100%; max-width: 1200px; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--czcionka-graffiti); font-size: 2.5rem; background: linear-gradient(45deg, var(--czerwien-zywa), var(--pomarancz-ognisty)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 3px; }
+        .menu-link { font-weight: 800; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .menu-link:hover { color: var(--pomarancz-ognisty); }
+        .sekcja-hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero-z-strzalkami { display: flex; align-items: center; justify-content: center; gap: 50px; width: 100%; }
+        .strzalki-grupa { display: flex; flex-direction: column; gap: 5px; }
+        .strzalka-w-dol { font-family: var(--czcionka-tytuly); font-weight: 800; font-size: 4rem; color: var(--pomarancz-ognisty); transform: rotate(90deg); display: inline-block; text-shadow: 0 0 15px rgba(255, 77, 0, 0.6); animation: pulsowanieStrzalki 1.5s infinite; }
+        .strzalka-w-dol:nth-child(1) { animation-delay: 0s; }
+        .strzalka-w-dol:nth-child(2) { animation-delay: 0.2s; }
+        .strzalka-w-dol:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes pulsowanieStrzalki { 0%, 100% { transform: rotate(90deg) translateX(0); opacity: 0.5; } 50% { transform: rotate(90deg) translateX(15px); opacity: 1; } }
+        .profil-kontener { display: flex; flex-direction: column; align-items: center; gap: 30px; background: rgba(10, 0, 0, 0.7); padding: 40px 60px; border-radius: 20px; border: 1px solid var(--bordo); box-shadow: 0 15px 40px rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 10; }
+        .profil-info { display: flex; align-items: center; gap: 25px; }
+        .nazwa-uzytkownika { font-family: var(--czcionka-tytuly); font-size: 3.5rem; color: var(--kolor-tekstu); text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); margin: 0; }
+        .przycisk-kanal { font-family: var(--czcionka-glowna); font-weight: 800; font-size: 1.1rem; color: var(--kolor-tekstu); text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(45deg, var(--czerwien-ciemna), var(--czerwien-zywa)); padding: 16px 45px; border-radius: 40px; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,0,21,0.3); text-align: center; border: 1px solid rgba(255,255,255,0.2); }
+        .przycisk-kanal:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255,0,21,0.6); color: #ffffff; border-color: var(--pomarancz-ognisty); }
+        .sekcja-tresci { padding: 100px 20px; display: flex; justify-content: center; }
+        .kontener-rapow { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 100px; }
+        .blok-rapu { display: flex; align-items: center; justify-content: space-between; gap: 40px; background: linear-gradient(135deg, rgba(15,0,0,0.9), rgba(5,0,0,0.95)); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 77, 0, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
+        .rap-tekst { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .rap-foto-kontener { flex: 1; border-radius: 12px; overflow: hidden; border: 2px solid var(--bordo); box-shadow: 0 0 20px rgba(138, 0, 11, 0.4); position: relative; }
+        .rap-foto-kontener::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(255,0,21,0.1), transparent); pointer-events: none; }
+        .rap-zdjecie { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16/9; }
+        .rap-tytul { font-family: var(--czcionka-tytuly); font-size: 2.8rem; color: var(--kolor-tekstu); margin-bottom: 5px; text-transform: uppercase; line-height: 1.1; }
+        .rap-link { display: inline-block; font-weight: 800; font-size: 1.2rem; color: var(--pomarancz-ognisty); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .rap-link:hover { color: var(--czerwien-zywa); text-shadow: 0 0 15px rgba(255, 0, 21, 0.8); transform: translateX(5px); }
+        .rap-opis { font-size: 1.1rem; color: var(--kolor-tekstu-ciemny); line-height: 1.8; border-top: 1px solid var(--czerwien-ciemna); padding-top: 20px; }
+        .glowna-stopka { text-align: center; padding: 40px 20px; background-color: rgba(5, 0, 0, 0.95); border-top: 1px solid rgba(138, 0, 11, 0.4); color: var(--kolor-tekstu-ciemny); margin-top: 50px; }
+        .stopka-tekst { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .tworca-akcent { color: var(--czerwien-zywa); font-weight: 800; font-size: 1.1rem; font-family: var(--czcionka-tytuly); margin: 0 5px; }
+        .prawa-zastrzezone { font-size: 0.85rem; opacity: 0.6; margin-top: 10px; }
+        @media (max-width: 768px) { #centralne-graffiti { font-size: 45vw; } .hero-z-strzalkami { gap: 15px; } .strzalka-w-dol { font-size: 2.5rem; } .profil-kontener { padding: 30px 20px; } .profil-info { flex-direction: column; text-align: center; gap: 15px; } .nazwa-uzytkownika { font-size: 2.5rem; } .przycisk-kanal { font-size: 0.9rem; padding: 12px 20px; } .blok-rapu { flex-direction: column !important; text-align: center !important; } .rap-tekst { align-items: center; } }
+    </style>
+</head>
+<body>
+    <div id="centralne-graffiti">777</div>
+    <nav class="glowna-nawigacja">
+        <div class="nawigacja-kontener">
+            <div class="logo">ANT£KNIGHT</div>
+            <ul style="display: flex; gap: 30px;">
+                <li><a href="#sekcja-start" class="menu-link">Start</a></li>
+                <li><a href="#sekcja-rap" class="menu-link">Wideo</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section id="sekcja-start" class="sekcja-hero">
+            <div class="hero-z-strzalkami">
+                <div class="strzalki-grupa">
+                    <div class="strzalka-w-dol">&gt;</div><div class="strzalka-w-dol">&gt;</div><div class="strzalka-w-dol">&gt;</div>
+                </div>
+                <div class="profil-kontener">
+                    <div class="profil-info">
+                        <h1 class="nazwa-uzytkownika">ANT£KNIGHT</h1>
+                    </div>
+                    <a href="https://www.tiktok.com/@realantek0" target="_blank" class="przycisk-kanal">nie masz nic do stracenia wbijaj na kanał &lt;3</a>
+                </div>
+                <div class="strzalki-grupa">
+                    <div class="strzalka-w-dol">&gt;</div><div class="strzalka-w-dol">&gt;</div><div class="strzalka-w-dol">&gt;</div>
+                </div>
+            </div>
+        </section>
+        <section id="sekcja-rap" class="sekcja-tresci">
+            <div id="kontener-rapow" class="kontener-rapow"></div>
+        </section>
+    </main>
+    <footer class="glowna-stopka">
+        <p class="stopka-tekst">twórca strony: <span class="tworca-akcent">Parzych</span></p>
+        <p class="prawa-zastrzezone">&copy; 2026 Wszelkie prawa zastrzeżone. Oryginalna strona.</p>
+    </footer>
+    <script>
+        "use strict";
+        const ListaRapow = [
+            { tytul: "Zygzak McQueen", linkUrl: "https://www.tiktok.com/@realantek0/video/7660432514841873697", linkTekst: "▶ Sprawdź wideo", zdjecie: "2.jpeg", opis: "Pierwsza wrzuta, która poszła w eter. Surowy bit i mocne pancze. Sprawdźcie to." },
+            { tytul: "Brand_", linkUrl: "https://www.tiktok.com/@realantek0/video/7652597700927442198", linkTekst: "▶ Sprawdź wideo", zdjecie: "1.jpeg", opis: "Drugi track zrobiony na szybkości. Kręcone wieczorem, czysta energia." },
+            { tytul: "Rachunek?!?", linkUrl: "https://www.tiktok.com/@realantek0/video/7634966843362528534", linkTekst: "▶ Zobacz klip", zdjecie: "5.jpeg", opis: "Trochę inne flow. Nocny klimat, ciężki bas i refleksja nad miastem." },
+            { tytul: "Otworzyć się na ludzi !", linkUrl: "https://www.tiktok.com/@realantek0/video/7624817143925706016", linkTekst: "▶ Posłuchaj całości", zdjecie: "4.jpeg", opis: "Czwarta wklejka, zamykająca pierwszą serię. Następne produkcje już w drodze." }
+        ];
+        const Kontener = document.getElementById("kontener-rapow");
+        function ZbudujRapySzachownica() {
+            if (!Kontener) return;
+            for (let i = 0; i < ListaRapow.length; i++) {
+                const dane = ListaRapow[i];
+                const Blok = document.createElement("div");
+                Blok.className = "blok-rapu";
+                const SekcjaTekstu = document.createElement("div");
+                SekcjaTekstu.className = "rap-tekst";
+                const Tytul = document.createElement("h2");
+                Tytul.className = "rap-tytul";
+                Tytul.textContent = dane.tytul;
+                const Link = document.createElement("a");
+                Link.className = "rap-link";
+                Link.href = dane.linkUrl;
+                Link.target = "_blank";
+                Link.textContent = dane.linkTekst;
+                const Opis = document.createElement("p");
+                Opis.className = "rap-opis";
+                Opis.textContent = dane.opis;
+                SekcjaTekstu.appendChild(Tytul);
+                SekcjaTekstu.appendChild(Link);
+                SekcjaTekstu.appendChild(Opis);
+                const SekcjaZdjecia = document.createElement("div");
+                SekcjaZdjecia.className = "rap-foto-kontener";
+                const Foto = document.createElement("img");
+                Foto.className = "rap-zdjecie";
+                Foto.src = dane.zdjecie;
+                Foto.alt = dane.tytul;
+                SekcjaZdjecia.appendChild(Foto);
+                if (i % 2 === 0) {
+                    Blok.appendChild(SekcjaTekstu);
+                    Blok.appendChild(SekcjaZdjecia);
+                } else {
+                    Blok.appendChild(SekcjaZdjecia);
+                    Blok.appendChild(SekcjaTekstu);
+                }
+                Kontener.appendChild(Blok);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", ZbudujRapySzachownica);
+    </script>
+</body>
+</html>
